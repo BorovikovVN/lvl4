@@ -1,0 +1,29 @@
+﻿<Window x:Class="lvl4.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:lvl4"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Orientation="Horizontal">
+            <TextBox Name="SearchTextBox" TextChanged="SearchTextBox_TextChanged" Margin="20,0,20,0" Height="30" TextAlignment="Center" Width="200" HorizontalAlignment="Center" ></TextBox>
+            <ComboBox SelectionChanged="cbSort_SelectionChanged" Name="cbSort" Width="200" Height="30"></ComboBox>
+            <ComboBox SelectedItem="{Binding TypeProductNavigation}" DisplayMemberPath="TypeName" SelectionChanged="cbSort_FiltrChanged" Name="cbFiltr" Margin="20,0,0,0" Width="200" Height="30"></ComboBox>
+        </StackPanel>
+        <DataGrid Name="DataGridContext" Margin="5" Grid.Row="1" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Название продукта" Binding="{Binding NameProduct}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Тип продукта" Binding="{Binding TypeProductNavigation.TypeName}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Артикль" Binding="{Binding Article}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Стоимость" Binding="{Binding Price}"></DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+            
+    </Grid>
+</Window>
